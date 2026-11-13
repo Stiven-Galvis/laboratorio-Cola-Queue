@@ -5,13 +5,13 @@ public class QueueNode {
 
     public QueueNode(Object object, int priority) {
         this.object = object;
-        this.priority = 0;
+        this.priority = priority;
         this.next = null;
     }
-
-    public QueueNode() {
+    
+    public QueueNode(Object object) {
         this.object = object;
-        this.priority = priority;
+        this.priority = 0;
         this.next = null;
     }
 }

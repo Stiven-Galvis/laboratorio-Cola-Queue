@@ -26,18 +26,30 @@ public class Queue {
         return size;
     }
 
+    public int size() {
+        return size;
+    }
+
     public void clear() {
         head = null;
         tail = null;
         size = 0;
     }
 
-    public void enqueue(Object object) {
-        enqueue(object, 0);
+    public boolean enqueue(Object object) {
+        return insert(object, 0);
     }
 
-    public void enqueue(Object object, int priority) {
-        QueueNode newNode = new QueueNode(object, priority) ;
+    public boolean enqueue(Object object, int priority) {
+        return insert(object, priority);
+    }
+
+    public boolean insert(Object object) {
+        return insert(object, 0);
+    }
+
+    public boolean insert(Object object, int priority) {
+        QueueNode newNode = new QueueNode(object, priority);
 
         if (isEmpty()) {
             head = newNode;
@@ -62,9 +74,14 @@ public class Queue {
             tail = newNode;
         }
         size++;
+        return true;
     }
 
     public Object dequeue() {
+        return extract();
+    }
+
+    public Object extract() {
         if (isEmpty()) {
             return null;
         }
